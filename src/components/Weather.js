@@ -42,10 +42,10 @@ export default function Weather() {
     const handleSubmit = (evt) => {
         evt.preventDefault()
 
-        let key = "fe761c68d2eb460e0483911fd05e80e5"
+        // let key = ""
         let url = `api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${key}`
         searchWeather(url)
-        // api.openweathermap.org/data/2.5/weather?q=Chicago&appid=fe761c68d2eb460e0483911fd05e80e5
+        // api.openweathermap.org/data/2.5/weather?q=Chicago&appid=
     }
 
     return (
