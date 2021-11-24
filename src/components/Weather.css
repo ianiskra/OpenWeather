@@ -1,6 +1,33 @@
 .weather-container{
     background-image: url('../background.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    height: 100vh;
+}
+
+.header{
+    min-height: 20vh;
+}
+
+.header header{
+    font-size: 3rem;
+    padding-top: 30px;
+    font-family: 'Comforter Brush', cursive;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.search{
+    min-height: 100px;
+}
+
+.display-weather{
+    padding-left: 30px;
 }

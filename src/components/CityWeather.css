@@ -18,5 +18,21 @@
 .weather-content ul li{
     list-style-type: none;
     display: block;
-    min-width: 100px;
+    font-size:larger;
+}
+
+.desc{
+    display: inline-block;
+    width: 1000px;
+    text-transform: uppercase;
+}
+
+.desc-img{
+    display: inline-block;
+    position: relative;
+    bottom: 20px;
+}
+
+.weather-content ul :nth-child(0){
+    width: 1000px;
 }

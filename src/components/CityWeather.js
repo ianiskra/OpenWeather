@@ -9,11 +9,15 @@ export default function CityWeather(props) {
             </div>
             <div className="weather-content">
                 <ul>
-                    <li>{props.desc}</li>
-                    <li>{props.temperature}</li>
-                    <li>
-                        <img src={`http://openweathermap.org/img/wn/${props.weatherIcon}@2x.png`}/>
+                    <li className="desc">{props.desc}</li>
+                    <li className="desc">{props.temperature}</li>
+                    {/* disable default icon at landing page */}
+                    {props.weatherIcon != null &&                     
+                    <li className="desc-img">
+                        <img src={`http://openweathermap.org/img/wn/${props.weatherIcon}@2x.png`} alt="image"/>
                     </li>
+                    }
+
                 </ul>
             </div>
         </div>
