@@ -10,7 +10,7 @@ export default function CityWeather(props) {
             <div className="weather-content">
                 <ul>
                     <li className="desc">{props.desc}</li>
-                    <li className="desc">{props.temperature}</li>
+                    <li className="desc">{props.temperature}&deg; F</li>
                     {/* disable default icon at landing page */}
                     {props.weatherIcon != null &&                     
                     <li className="desc-img">

@@ -1,7 +1,8 @@
 /* Classes */
 .weather-holder{
     width: 33vw;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    border: solid white 2px;
     display: flex;
     flex-direction: column;
 }
@@ -10,29 +11,42 @@
     color: rgb(1, 12, 34)
 }
 
+.weather-content{
+    
+}
+
 .weather-content ul{
     display: flex;
     flex-direction: row;
+    align-content: center;
+    border: solid white 2px;
 }
 
 .weather-content ul li{
     list-style-type: none;
     display: block;
-    font-size:larger;
+    font-size: larger;
+    width: 12vw;
 }
 
 .desc{
-    display: inline-block;
-    width: 1000px;
+    display: block;
+    /* width: 1000px; */
     text-transform: uppercase;
+    text-align: center;
+    align-self: end;
+    border: solid white 2px;
+    min-height: 105px;
 }
 
 .desc-img{
-    display: inline-block;
+    display: block;
     position: relative;
-    bottom: 20px;
+    border: solid white 2px;
 }
 
-.weather-content ul :nth-child(0){
+/* .weather-content ul :nth-child(0){
     width: 1000px;
-}
+} */
+/* 
+#root > div > div */

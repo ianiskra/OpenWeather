@@ -65,26 +65,26 @@ export default function Weather() {
             <div>
                 {/* header container */}
                 <div className="header">
-                    <header>My Header</header>
+                    <header>The Weather</header>
                 </div>
             </div>
             <div className="search-container">
                 {/* form container for search */}
-                <div className="search">
+                <div className="search-form">
                     <form onSubmit={handleSubmit} >
-                        <label htmlFor="search" >Search</label>
-                        <input id="search" type="text" name="searchTerm" value={searchTerm} onChange={handleChange} />
-                        <button text="submit">Submit</button>
+                        <label htmlFor="search" ></label>
+                        <input id="search" placeholder="Search The Weather" type="text" name="searchTerm" value={searchTerm} onChange={handleChange} />
+                        <input id="submit" text="submit" type="submit" placeholder="Search"/>
                     </form>
                 </div>
                 {weatherData.cityName !== null &&
                     <div className="display-weather">
-                        <CityWeather
+                        {weatherData.cityName != null && <CityWeather
                             cityName={weatherData.cityName}
                             desc={weatherData.desc}
                             temperature={weatherData.temperature}
                             weatherIcon={weatherData.icon}
-                        />
+                        />}
                     </div>
                 }
             </div>
