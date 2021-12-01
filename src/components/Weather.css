@@ -12,11 +12,13 @@
     border-radius: 5px;
     border: solid black 2px;
     display: inline-block;
-    height: 56px;
+    height: 50px;
     font-size: 20px;
     background-color: #FFF;
+    padding: 0 20px;
 }
 
+/* Classes */
 .weather-container{
     background-image: url('../background.jpg');
     background-size: cover;
@@ -27,7 +29,7 @@
 }
 
 .header{
-    min-height: 20vh;
+    min-height: 10vh;
 }
 
 .header header{
@@ -45,8 +47,5 @@
 
 .search-form{
     min-height: 100px;
-}
-
-.display-weather{
-    /* padding-left: 30px; */
+    margin-bottom: 50px;
 }

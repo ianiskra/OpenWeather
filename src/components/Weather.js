@@ -3,7 +3,7 @@ import CityWeather from './CityWeather'
 import './Weather.css'
 
 export default function Weather() {
-    // Create Search State
+    // Create Use State hook for Search
     const [searchTerm, setSearch] = useState("")
     const [weatherData, setWeatherData] = useState({})
 
@@ -31,6 +31,7 @@ export default function Weather() {
                 return response
             })
             .then(result => {
+                // Will target css for corresponding weather, next task
                 let data = {
                     cityName: result.name,
                     desc: result.weather[0].description,
@@ -50,14 +51,13 @@ export default function Weather() {
             });
     }
 
-    // Eventhandle for search-submission
+    // Eventhandler for search-submission
     const handleSubmit = (evt) => {
         evt.preventDefault()
 
         let key = process.env.REACT_APP_WEATHERKEY
         let url = `http://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=${key}`
         searchWeather(url)
-        // api.openweathermap.org/data/2.5/weather?q=Chicago&appid=
     }
 
     return (
@@ -74,7 +74,7 @@ export default function Weather() {
                     <form onSubmit={handleSubmit} >
                         <label htmlFor="search" ></label>
                         <input id="search" placeholder="Search The Weather" type="text" name="searchTerm" value={searchTerm} onChange={handleChange} />
-                        <input id="submit" text="submit" type="submit" placeholder="Search"/>
+                        <button id="submit" text="submit" type="submit">Search</button>
                     </form>
                 </div>
                 {weatherData.cityName !== null &&

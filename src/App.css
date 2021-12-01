@@ -1,3 +1,11 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  /* Determines width and height of elements */
+  box-sizing: border-box; 
+}
+
 .App {
   text-align: center;
 }

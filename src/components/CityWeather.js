@@ -14,7 +14,7 @@ export default function CityWeather(props) {
                     {/* disable default icon at landing page */}
                     {props.weatherIcon != null &&                     
                     <li className="desc-img">
-                        <img src={`http://openweathermap.org/img/wn/${props.weatherIcon}@2x.png`} alt="image"/>
+                        <img src={`http://openweathermap.org/img/wn/${props.weatherIcon}@2x.png`} alt="weather icon"/>
                     </li>
                     }
 
