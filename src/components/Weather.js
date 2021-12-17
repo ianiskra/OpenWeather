@@ -6,17 +6,17 @@ export default function Weather() {
   // Create Use State hook for Search
   const [searchTerm, setSearch] = useState('');
   const [weatherData, setWeatherData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   // eventhandler for input
-  const handleChange = evt => {
-    // console.log(evt.target.value);
-
-    // Saves the search variable
-    setSearch(evt.target.value);
+  const handleChange = ({ target: { value } }) => {
+    if (!value) setLoading(true);
+    setSearch(value);
   };
 
   // Find Weather
   const searchWeather = url => {
+    setLoading(true);
     fetch(url)
       .then(response => {
         // network failure, request prevented
@@ -26,28 +26,24 @@ export default function Weather() {
 
         return Promise.reject(new Error(response.statusText));
       })
-      .then(response => {
-        // console.log(response);
-        return response;
-      })
+      .then(response => response)
       .then(result => {
         // Will target css for corresponding weather, next task
+        let weather = result?.weather[0];
         let data = {
           cityName: result.name,
-          desc: result.weather[0].description,
+          desc: weather.description,
           temperature: Math.round(result.main.temp),
-          icon: result.weather[0].icon
+          icon: weather.icon
         };
-        // console.log(data);
+
         // retrive weather info
         setWeatherData(data);
-
-        // custom result
-        // console.log('result.body', result);
+        setLoading(false);
       })
       .catch(error => {
         // common error
-        return null;
+        console.error(`Error in fetch: ${error}`);
       });
   };
 
@@ -55,6 +51,7 @@ export default function Weather() {
   const handleSubmit = evt => {
     evt.preventDefault();
     let query = isNaN(parseInt(searchTerm, 10)) ? 'q' : 'zip';
+
     let key = process.env.REACT_APP_WEATHERKEY;
     let url = `http://api.openweathermap.org/data/2.5/weather?${query}=${searchTerm}&units=imperial&appid=${key}`;
     searchWeather(url);
@@ -75,7 +72,7 @@ export default function Weather() {
             <label htmlFor="search"></label>
             <input
               id="search"
-              placeholder="Search The Weather"
+              placeholder="Search by city or zip code"
               type="text"
               name="searchTerm"
               value={searchTerm}
@@ -86,9 +83,9 @@ export default function Weather() {
             </button>
           </form>
         </div>
-        {weatherData.cityName !== null && (
+        {weatherData.cityName && !loading && (
           <div className="display-weather">
-            {weatherData.cityName != null && (
+            {weatherData.cityName && (
               <CityWeather
                 cityName={weatherData.cityName}
                 desc={weatherData.desc}
