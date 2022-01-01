@@ -6,16 +6,11 @@ import "./Weather.css";
 export default function Weather() {
   // Create Use State hook for Search
   const [searchTerm, setSearch] = useState("");
-  // const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState("");
   const { result, loading } = useFetch(url);
 
-  useEffect(() => {
-    console.log("result: ", result);
-  }, [result]);
   // eventhandler for input
   const handleChange = (e) => {
-    // e.preventDefault();
     setSearch(e.target.value);
   };
 
