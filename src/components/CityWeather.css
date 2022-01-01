@@ -78,3 +78,12 @@
     width: 22vw;
   }
 }
+
+.weather-icon {
+  position: absolute;
+  top: 6%;
+  left: 10%;
+  transform: translate(-10%, -50%);
+  opacity: 0.25;
+  z-index: 1 !important;
+}
