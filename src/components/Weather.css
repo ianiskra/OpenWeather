@@ -41,7 +41,6 @@
   background-position: center;
   height: 100vh;
   filter: brightness(80%);
-  z-index: 1;
 }
 
 .header {
